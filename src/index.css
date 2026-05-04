@@ -1,0 +1,205 @@
+
+/* ---- Google Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* =========================================================
+   ✅ Tailwind v4 THEME (REPLACES tailwind.config.js)
+   ========================================================= */
+@theme {
+  /* Fonts */
+  --font-display: "Playfair Display", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Colors - Obsidian */
+  --color-obsidian-50: #f5f5f0;
+  --color-obsidian-100: #e8e8e0;
+  --color-obsidian-200: #d0d0c0;
+  --color-obsidian-300: #a8a890;
+  --color-obsidian-400: #808070;
+  --color-obsidian-500: #606050;
+  --color-obsidian-600: #484840;
+  --color-obsidian-700: #303028;
+  --color-obsidian-800: #1c1c18;
+  --color-obsidian-900: #0e0e0c;
+  --color-obsidian-950: #050504;
+
+  /* Colors - Gold */
+  --color-gold-300: #fde68a;
+  --color-gold-400: #fbbf24;
+  --color-gold-500: #f59e0b;
+  --color-gold-600: #d97706;
+
+  /* Other */
+  --color-cream: #faf8f4;
+
+  /* Blur */
+  --blur-xs: 2px;
+}
+
+/* =========================================================
+   ✅ CSS VARIABLES (your design system)
+   ========================================================= */
+:root {
+  --bg-primary: var(--color-obsidian-900);
+  --bg-secondary: var(--color-obsidian-800);
+  --bg-card: #181815;
+  --text-primary: var(--color-cream);
+  --text-muted: var(--color-obsidian-300);
+  --accent-gold: var(--color-gold-400);
+  --accent-gold-dark: var(--color-gold-600);
+  --border: rgba(255,255,255,0.08);
+  --shadow-glow: 0 0 40px rgba(251, 191, 36, 0.15);
+}
+
+/* =========================================================
+   ✅ BASE
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   ✅ SCROLLBAR
+   ========================================================= */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: #484840; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #606050; }
+
+/* =========================================================
+   ✅ SELECTION
+   ========================================================= */
+::selection {
+  background: rgba(251,191,36,0.3);
+  color: var(--color-cream);
+}
+
+/* =========================================================
+   ✅ ANIMATIONS
+   ========================================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* =========================================================
+   ✅ UTILITIES (IMPORTANT: replace Tailwind config)
+   ========================================================= */
+
+/* Fonts */
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Colors (manual mapping for Tailwind-like usage) */
+.bg-obsidian-900 { background-color: var(--color-obsidian-900); }
+.bg-obsidian-800 { background-color: var(--color-obsidian-800); }
+.text-obsidian-400 { color: var(--color-obsidian-400); }
+.text-obsidian-200 { color: var(--color-obsidian-200); }
+.text-cream { color: var(--color-cream); }
+.bg-gold-500 { background-color: var(--color-gold-500); }
+.text-gold-400 { color: var(--color-gold-400); }
+
+/* Animations */
+.animate-fade-up { animation: fadeUp 0.6s ease forwards; }
+.animate-fade-in { animation: fadeIn 0.4s ease forwards; }
+.animate-slide-left { animation: slideLeft 0.5s ease forwards; }
+.animate-scale-in { animation: scaleIn 0.3s ease forwards; }
+.animate-shimmer { animation: shimmer 1.8s infinite; }
+.animate-spin-slow { animation: spin 3s linear infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+/* Components */
+.skeleton {
+  background: linear-gradient(90deg, #1c1c18 0%, #2a2a22 50%, #1c1c18 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+.pwa-banner {
+  animation: slideUp 0.4s ease forwards;
+}
+
+/* Effects */
+.text-gradient {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #fde68a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hover */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+/* Helpers */
+img { max-width: 100%; display: block; }
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
