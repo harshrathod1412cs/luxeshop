@@ -25,7 +25,7 @@ export default function PWABanner() {
           </div>
           <button
             onClick={updateSW}
-            className="bg-gold-500 text-obsidian-900 text-xs font-bold px-3 py-1.5 rounded-lg hover:bg-gold-400 transition-colors"
+            className="bg-gold-500 cursor-pointer text-obsidian-900 text-xs font-bold px-3 py-1.5 rounded-lg hover:bg-gold-400 transition-colors"
           >
             Update
           </button>
@@ -47,13 +47,13 @@ export default function PWABanner() {
               <div className="flex gap-2 mt-3">
                 <button
                   onClick={promptInstall}
-                  className="flex-1 bg-gold-500 text-obsidian-900 text-xs font-bold py-1.5 rounded-lg hover:bg-gold-400 transition-colors"
+                  className="flex-1 cursor-pointer bg-gold-500 text-obsidian-900 text-xs font-bold py-1.5 rounded-lg hover:bg-gold-400 transition-colors"
                 >
                   Install App
                 </button>
                 <button
                   onClick={() => setDismissed(true)}
-                  className="px-3 text-obsidian-400 hover:text-obsidian-200 text-xs transition-colors"
+                  className="px-3 cursor-pointer text-obsidian-400 hover:text-obsidian-200 text-xs transition-colors"
                 >
                   Later
                 </button>
