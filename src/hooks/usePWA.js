@@ -22,6 +22,7 @@ export function usePWA() {
     const handleInstallPrompt = (e) => {
       e.preventDefault();
       setInstallPrompt(e);
+      console.log("[PWA] Install prompt captured. You can show your custom install button now.");
     };
 
     /* ---- App Installed ----

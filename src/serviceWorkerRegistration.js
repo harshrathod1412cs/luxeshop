@@ -11,24 +11,11 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
-  // PWA only works in production OR on localhost
   if ("serviceWorker" in navigator) {
-    const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
-    if (publicUrl.origin !== window.location.origin) return;
-
     window.addEventListener("load", () => {
-      const swUrl = `/service-worker.js`;
+      const swUrl = "/service-worker.js";
 
-      if (isLocalhost) {
-        // On localhost: check if SW still exists
-        checkValidServiceWorker(swUrl, config);
-        navigator.serviceWorker.ready.then(() => {
-          console.log("[PWA] Running with service worker (localhost).");
-        });
-      } else {
-        // On production: just register
-        registerValidSW(swUrl, config);
-      }
+      registerValidSW(swUrl, config);
     });
   }
 }
